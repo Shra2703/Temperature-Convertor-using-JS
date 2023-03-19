@@ -1,4 +1,5 @@
 const  calculateTemp = () =>{
+    document.getElementById('resultContainer').innerHTML = ' ';
     const tempValue = document.getElementById('temp').value;
     console.log(tempValue);
     const tempSelector = document.getElementById('temp_diff');
@@ -18,12 +19,13 @@ const  calculateTemp = () =>{
     }
 
     let results;
+    if(tempValue == '') alert('Please enter something');
 
-    if(valueTemp == 'cel'){
+    if(valueTemp == 'cel' && tempValue != ''){
         results = celToFah(tempValue);
         document.getElementById('resultContainer').innerHTML = `= ${results} Fahrenheit`;
     }
-    else{
+    else if(valueTemp == 'fah' && tempValue != ''){
         results = fahToCel(tempValue);
         document.getElementById('resultContainer').innerHTML = `= ${results} Celsius`;
     }
